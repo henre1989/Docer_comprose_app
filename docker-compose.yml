@@ -1,22 +1,21 @@
 ---
-version: "3.2"
-services: 
-  build_app: 
+services:
+  build_app:
     build: java_webapp
     volumes:
-      - type: volume
+      -
         source: war_file
         target: /home/boxfuse-sample-java-war-hello/target/hello-1.0.war
-
-  run_app: 
+        type: volume
+  run_app:
     image: "tomcat:9"
-    ports: 
+    ports:
       - "8080:8080"
-    volumes: 
-      - type: volume
-        source: war_file
-        target: /home/boxfuse-sample-java-war-hello/target/hello-1.0.war
-
-
-volumes: 
-  war_file:
+#    volumes:
+#      -
+#        source: war_file
+#        target: /home/boxfuse-sample-java-war-hello/target/hello-1.0.war
+#        type: volume
+version: "3.2"
+volumes:
+  war_file: ~
