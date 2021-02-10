@@ -5,16 +5,11 @@ services:
     volumes:
       - war_file:/home/boxfuse-sample-java-war-hello/target
   run_app:
-    image: "tomcat:9"
+    build: run_apps
     ports:
       - "8080:8080"
     volumes:
-      - war_file:/usr/local/tomcat/webapps
-#    volumes:
-#      -
-#        source: war_file
-#        target: /home/boxfuse-sample-java-war-hello/target/hello-1.0.war
-#        type: volume
+      - war_file:/usr/local/tomcat/war
 version: "3.8"
 volumes:
   war_file:
