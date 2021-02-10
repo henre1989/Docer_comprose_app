@@ -8,6 +8,8 @@ services:
     image: "tomcat:9"
     ports:
       - "8080:8080"
+    volumes:
+      - war_file:/usr/local/tomcat/webapps
 #    volumes:
 #      -
 #        source: war_file
