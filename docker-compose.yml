@@ -3,14 +3,15 @@ services:
   build_app:
     build: java_webapp
     volumes:
-      - war_file:/home/boxfuse-sample-java-war-hello/target/hello-1.0.war
+      - war_file:/home/boxfuse-sample-java-war-hello/target
   run_app:
     build: run_apps
     ports:
       - "8080:8080"
     volumes:
-#      - war_file:/usr/local/tomcat/war
-      - war_file:/usr/local/tomcat/webapps/hello-1.0.war
+      - war_file:/usr/local/tomcat/war
+#      - war_file:/usr/local/tomcat/webapps/hello-1.0.war
+    command: /bin/bash -cx "cp /usr/local/tomcat/war/hello-1.0.war /usr/local/tomcat/webapps/"
 version: "3.8"
 volumes:
   war_file:
